@@ -5,6 +5,7 @@ import { dataSourceOptions } from '../db/data-source';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { SurveyModule } from './survey/survey.module';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { SurveyModule } from './survey/survey.module';
     AuthModule,
     SurveyModule,
   ],
-  controllers: [],
+  controllers: [HealthController],
   providers: [],
 })
 export class AppModule {}
