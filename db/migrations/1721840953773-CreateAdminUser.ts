@@ -2,8 +2,8 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 
-export class CreateAdminUser1721840553773 implements MigrationInterface {
-  name = 'CreateAdminUser1721840553773';
+export class CreateAdminUser1721840953773 implements MigrationInterface {
+  name = 'CreateAdminUser1721840953773';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     const id = uuidv4();
