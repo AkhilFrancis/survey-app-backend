@@ -16,6 +16,9 @@ export const dataSourceOptions: PostgresConnectionOptions = {
   dropSchema: false,
   synchronize: false,
   logging: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const dataSource = new DataSource(dataSourceOptions);
