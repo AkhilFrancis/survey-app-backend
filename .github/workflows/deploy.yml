@@ -27,6 +27,9 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Install Railway CLI
+        run: npm install -g railway
+
       - name: Log in to Railway
         run: railway login --token ${{ secrets.RAILWAY_TOKEN }}
 
