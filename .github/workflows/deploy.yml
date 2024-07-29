@@ -30,29 +30,8 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Debug Environment Variables
-        run: |
-          echo "RAILWAY_TOKEN: ${RAILWAY_TOKEN:0:4}****"
-          echo "DB_HOST: ${DB_HOST}"
-          echo "DB_PORT: ${DB_PORT}"
-          echo "DB_USERNAME: ${DB_USERNAME}"
-          echo "DB_PASSWORD: ${DB_PASSWORD:0:4}****"
-          echo "DB_NAME: ${DB_NAME}"
-          echo "JWT_SECRET: ${JWT_SECRET:0:4}****"
-          echo "ADMIN_PASSWORD: ${ADMIN_PASSWORD:0:4}****"
-          echo "ADMIN_EMAIL: ${ADMIN_EMAIL}"
-          echo "FRONT_END_URL: ${FRONT_END_URL}"
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_NAME: ${{ secrets.DB_NAME }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
-          FRONT_END_URL: ${{ secrets.FRONT_END_URL }}
+      - name: Log in to Railway
+        run: echo ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy
         run: railway up
