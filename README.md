@@ -15,6 +15,10 @@ password: adm!n
 
 ![Sequence Diagram](./images/sequence-diagram.svg)
 
+## ER Diagram
+
+![ER Diagram](./images/er-diagram.png)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
