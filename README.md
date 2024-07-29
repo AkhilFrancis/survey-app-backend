@@ -3,6 +3,9 @@
 
 This repository contains the backend for the Survey Management application built using NestJS. It provides APIs for creating surveys, submitting responses, and managing user data.
 Deployed On - https://survey-app-frontend-production.up.railway.app/surveys
+Admin credentials
+email: admin@example.com
+password: adm!n
 
 ## Table of Contents
 
