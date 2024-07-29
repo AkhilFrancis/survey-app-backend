@@ -12,8 +12,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Navigate to the backend directory and build the application
-WORKDIR /app/survey-app-backend
+# Build the application
 RUN npm run build
 
 # Expose the port the app runs on
