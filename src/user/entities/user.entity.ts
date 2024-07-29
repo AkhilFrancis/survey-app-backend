@@ -1,4 +1,4 @@
-import { SurveyResponse } from 'src/survey/entities/survey.response.entity';
+import { SurveyResponse } from '../../survey/entities/survey.response.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Exclude } from 'class-transformer';
 

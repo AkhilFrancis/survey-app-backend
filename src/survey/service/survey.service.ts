@@ -161,6 +161,11 @@ export class SurveyService {
     surveyId: string,
     updateSurveyDto: CreateSurveyDto,
   ): Promise<SurveyVersion> {
+    const survey = await this.surveyRepository.findOne({
+      where: { id: surveyId },
+    });
+    if (!survey) throw new Error('Survey not found');
+
     const latestVersion = await this.getLatestVersion(surveyId);
 
     // Create a new version based on the latest version
@@ -172,23 +177,15 @@ export class SurveyService {
 
     const { title, description, questions } = updateSurveyDto;
 
-    const survey = await this.surveyRepository.findOne({
-      where: { id: surveyId },
-    });
-
-    if (survey) {
-      if (title) {
-        survey.title = title;
-      }
-
-      if (description) {
-        survey.description = description;
-      }
-
-      await this.surveyRepository.save(survey);
-    } else {
-      throw new Error('Survey not found');
+    if (title) {
+      survey.title = title;
     }
+
+    if (description) {
+      survey.description = description;
+    }
+
+    await this.surveyRepository.save(survey);
 
     // Create new questions and options for the new version
     await this.createQuestionsAndOptions(savedNewVersion, questions);
