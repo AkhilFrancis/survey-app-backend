@@ -1,8 +1,8 @@
-# Use the official Node.js image.
+# Use the official Node.js image
 # https://hub.docker.com/_/node
 FROM node:20-alpine
 
-# Create and change to the app directory.
+# Create and change to the app directory
 WORKDIR /app
 
 # Install dependencies
@@ -19,4 +19,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the application
-CMD ["node", "dist/main"]
+CMD ["node", "dist/src/main"]
