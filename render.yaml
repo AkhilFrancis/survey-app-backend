@@ -2,7 +2,7 @@ services:
   - name: survey-backend-service
     type: web
     env: docker
-    dockerfilePath: ./survey-app-backend/Dockerfile
+    dockerfilePath: Dockerfile
     buildCommand: npm install && npm run build
     startCommand: node dist/main
     envVars:
