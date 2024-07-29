@@ -30,18 +30,7 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Log in to Railway
-        run: |
-          railway login --browserless
-          sleep 2
-          code=$(grep -o 'code=.*' < /github/home/.railway/railway.log | head -n 1 | cut -d'=' -f2)
-          echo "::set-output name=code::$code"
-        id: railway_login
-
-      - name: Complete Railway Login
-        run: echo ${{ steps.railway_login.outputs.code }}
-
-      - name: Deploy to Railway
-        run: railway up --service survey-backend-service --env production
+      - name: Deploy
+        run: railway up
         env:
-          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
