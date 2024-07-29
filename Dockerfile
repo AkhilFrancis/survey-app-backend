@@ -1,15 +1,23 @@
-# Stage 1: Build the application
-FROM node:20.15.1 AS builder
+# Use the official Node.js image.
+# https://hub.docker.com/_/node
+FROM node:20-alpine
+
+# Create and change to the app directory.
 WORKDIR /app
+
+# Install dependencies
 COPY package*.json ./
 RUN npm install
+
+# Copy the rest of the application code
 COPY . .
+
+# Navigate to the backend directory and build the application
+WORKDIR /app/survey-app-backend
 RUN npm run build
 
-# Stage 2: Run the application
-FROM node:20.15.1-alpine
-WORKDIR /app
-COPY --from=builder /app .
-RUN npm install --only=production
+# Expose the port the app runs on
 EXPOSE 3000
+
+# Start the application
 CMD ["node", "dist/main"]

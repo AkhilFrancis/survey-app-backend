@@ -3,23 +3,8 @@ services:
     type: web
     env: docker
     dockerfilePath: ./Dockerfile
+    buildCommand: cd survey-app-backend && npm install && npm run build
+    startCommand: node dist/main
     envVars:
-      - key: DB_HOST
-        fromGroup: survey-backend
-      - key: DB_PORT
-        fromGroup: survey-backend
-      - key: DB_USERNAME
-        fromGroup: survey-backend
-      - key: DB_PASSWORD
-        fromGroup: survey-backend
-      - key: DB_NAME
-        fromGroup: survey-backend
-      - key: JWT_SECRET
-        fromGroup: survey-backend
-      - key: ADMIN_PASSWORD
-        fromGroup: survey-backend
-      - key: ADMIN_EMAIL
-        fromGroup: survey-backend
-      - key: FRONT_END_URL
-        fromGroup: survey-backend
-    image: akhilfrancis7/survey-backend-app:latest
+      - fromGroup: survey-backend
+    image: survey-backend-app
