@@ -13,7 +13,7 @@ password: adm!n
 
 ## Sequence Diagram
 
-![Sequence Diagram](./images/sequence-diagram.png)
+![Sequence Diagram](./images/sequence-diagram.svg)
 
 ## Table of Contents
 
